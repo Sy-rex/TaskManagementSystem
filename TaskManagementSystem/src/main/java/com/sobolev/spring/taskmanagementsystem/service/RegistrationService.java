@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -20,6 +21,7 @@ public class RegistrationService {
     @Transactional
     public void register(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setCreatedAt(new Date());
 
         Role role = roleService.findRoleByName("ROLE_USER"); // администраторы назначаются вручную в самой БД
         user.setRoles(List.of(role));
