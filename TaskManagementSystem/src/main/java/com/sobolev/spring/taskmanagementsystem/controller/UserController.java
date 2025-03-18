@@ -85,10 +85,26 @@ public class UserController {
     public ResponseEntity<CommentDTO> addComment(
             @PathVariable Integer taskId,
             @RequestBody @Valid CreateCommentRequest request,
-            @AuthenticationPrincipal User user) {
+            HttpServletRequest httpRequest) {
 
-        CommentDTO comment = taskService.addComment(taskId, request.getCommentText(), user);
-        return new ResponseEntity<>(comment, HttpStatus.CREATED);
+        String token = jwtTokenUtils.extractToken(httpRequest);
+        Optional<User> user = userService.findByUsername(jwtTokenUtils.getUsernameFromToken(token));
+
+        if (user.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+        if (request.getCommentText() == null || request.getCommentText().trim().isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(null);
+        }
+
+        System.out.println("Пользователь " + user.get().getUsername() +
+                " добавляет комментарий к задаче " + taskId + ": " + request.getCommentText());
+
+        CommentDTO comment = taskService.addComment(taskId, request.getCommentText(), user.get());
+        return ResponseEntity.status(HttpStatus.CREATED).body(comment);
     }
+
 
 }
