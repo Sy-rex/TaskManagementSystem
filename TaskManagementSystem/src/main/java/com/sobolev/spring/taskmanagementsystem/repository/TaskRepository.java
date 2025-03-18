@@ -12,8 +12,6 @@ import java.util.Optional;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Integer> {
-    List<Task> findAllByAuthor(User author);
-
     List<Task> findAllByAssignees(User assignedUser);
 
     @Query("SELECT t FROM Task t LEFT JOIN FETCH t.assignees WHERE t.id = :id")

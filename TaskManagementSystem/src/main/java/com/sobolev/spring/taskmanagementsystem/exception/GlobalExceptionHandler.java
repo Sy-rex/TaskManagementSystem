@@ -26,6 +26,13 @@ public class GlobalExceptionHandler {
         return new ErrorResponse(ex.getMessage());
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleInvalidArgument(IllegalArgumentException ex) {
+        return new ErrorResponse(ex.getMessage());
+    }
+
+
     @Data
     @AllArgsConstructor
     public static class ErrorResponse {

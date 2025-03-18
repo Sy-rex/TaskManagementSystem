@@ -19,4 +19,5 @@ public class TaskDTO{
     private String priority;
     private String authorName;
     private List<String> assignees;
+    private List<CommentDTO> comments;
 }
