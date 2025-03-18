@@ -6,7 +6,6 @@ import com.sobolev.spring.taskmanagementsystem.dto.RegistrationUserDTO;
 import com.sobolev.spring.taskmanagementsystem.model.User;
 import com.sobolev.spring.taskmanagementsystem.security.JwtTokenUtils;
 import com.sobolev.spring.taskmanagementsystem.service.RegistrationService;
-import com.sobolev.spring.taskmanagementsystem.service.UserService;
 import com.sobolev.spring.taskmanagementsystem.util.UserValidator;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

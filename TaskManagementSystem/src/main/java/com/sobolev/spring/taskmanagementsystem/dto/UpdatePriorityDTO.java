@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateStatusDTO {
-    @Pattern(regexp = "PENDING|IN_PROGRESS|COMPLETED", message = "Неправильное значение")
-    @NotNull(message = "Статус не должен быть пустым")
-    private String status;
+public class UpdatePriorityDTO {
+    @Pattern(regexp = "LOW|MEDIUM|HIGH", message = "Неправильное значение")
+    @NotNull(message = "Приоритет не должен быть пустым")
+    private String priority;
 }

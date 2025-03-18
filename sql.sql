@@ -54,3 +54,11 @@ CHECK (status IN ('PENDING', 'IN_PROGRESS', 'COMPLETED'));
 ALTER TABLE tasks 
 ADD CONSTRAINT check_priority 
 CHECK (priority IN ('HIGH', 'MEDIUM', 'LOW'));
+
+INSERT INTO users(username,password,email) 
+VALUES ('admin',
+'$2a$10$Pm1hTJT09eHG6o7d2rNaeOqrqZQYg0/zKbN8A/FfY4Jfrve1TWKYS',
+'admin@email');
+
+INSERT INTO users_roles(user_id,role_id)
+VALUES (1,2);

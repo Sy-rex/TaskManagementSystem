@@ -1,9 +1,7 @@
 package com.sobolev.spring.taskmanagementsystem.model;
 
 import com.sobolev.spring.taskmanagementsystem.util.TaskPriority;
-import com.sobolev.spring.taskmanagementsystem.util.TaskPriorityConverter;
 import com.sobolev.spring.taskmanagementsystem.util.TaskStatus;
-import com.sobolev.spring.taskmanagementsystem.util.TaskStatusConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

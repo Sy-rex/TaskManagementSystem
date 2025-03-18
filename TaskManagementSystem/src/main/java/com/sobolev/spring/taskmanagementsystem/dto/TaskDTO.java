@@ -1,8 +1,5 @@
 package com.sobolev.spring.taskmanagementsystem.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sobolev.spring.taskmanagementsystem.util.TaskPriority;
-import com.sobolev.spring.taskmanagementsystem.util.TaskStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

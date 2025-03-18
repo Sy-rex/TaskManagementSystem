@@ -4,22 +4,19 @@ import com.sobolev.spring.taskmanagementsystem.dto.CommentDTO;
 import com.sobolev.spring.taskmanagementsystem.dto.CreateCommentRequest;
 import com.sobolev.spring.taskmanagementsystem.dto.TaskDTO;
 import com.sobolev.spring.taskmanagementsystem.dto.UpdateStatusDTO;
-import com.sobolev.spring.taskmanagementsystem.model.Task;
 import com.sobolev.spring.taskmanagementsystem.model.User;
 import com.sobolev.spring.taskmanagementsystem.security.JwtTokenUtils;
 import com.sobolev.spring.taskmanagementsystem.service.TaskService;
 import com.sobolev.spring.taskmanagementsystem.service.UserService;
-import jakarta.servlet.ServletOutputStream;
+import com.sobolev.spring.taskmanagementsystem.util.TaskStatus;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -76,7 +73,7 @@ public class UserController {
 
         System.out.println("Пользователь " + user.get().getUsername() + " обновляет статус задачи " + taskId + " на " + dto.getStatus());
 
-        TaskDTO updatedTask = taskService.updateTaskStatus(taskId, dto.getStatus(), user.get());
+        TaskDTO updatedTask = taskService.updateTaskStatus(taskId, TaskStatus.valueOf(dto.getStatus()), user.get());
         return ResponseEntity.ok(updatedTask);
     }
 

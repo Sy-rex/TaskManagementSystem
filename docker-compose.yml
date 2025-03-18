@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: task_management_db
+    environment:
+      POSTGRES_DB: task_management_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./sql.sql:/docker-entrypoint-initdb.d/sql.sql
+    networks:
+      - task_network
+
+networks:
+  task_network:
+    driver: bridge
+
+volumes:
+  db_data:

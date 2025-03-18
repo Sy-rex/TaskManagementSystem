@@ -52,10 +52,6 @@ public class JwtTokenUtils {
         return JWT.decode(token).getSubject();
     }
 
-    public Long getExpirationDateFromToken(String token) {
-        return JWT.decode(token).getClaim("exp").asLong();
-    }
-
     public String extractToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
