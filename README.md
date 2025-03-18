@@ -70,13 +70,13 @@ mvn clean package
 
 ### 🔹 3. Запуск Docker-контейнеров:
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
 Это поднимет контейнер с PostgreSQL, создаст базу данных и наполнит её начальными данными.
 
 ### 🔹 4. Запуск приложения:
 ```sh
-java -jar target/task-management-system.jar
+java -jar target/TaskManagementSystem-*.jar
 ```
 
 ## 🎭 Доступ по умолчанию
