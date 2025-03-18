@@ -59,8 +59,8 @@ POST /api/auth/login
 
 ### 🔹 1. Клонирование репозитория:
 ```sh
-git clone https://github.com/username/task-management-system.git
-cd task-management-system
+git clone https://github.com/Sy-rex/TaskManagementSystem.git
+cd TaskManagementSystem
 ```
 
 ### 🔹 2. Сборка проекта (Maven подтянет зависимости автоматически):
