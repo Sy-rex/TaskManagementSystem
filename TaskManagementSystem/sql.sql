@@ -46,3 +46,11 @@ CREATE TABLE task_comments (
     comment_text TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE tasks 
+ADD CONSTRAINT check_status 
+CHECK (status IN ('PENDING', 'IN_PROGRESS', 'COMPLETED'));
+
+ALTER TABLE tasks 
+ADD CONSTRAINT check_priority 
+CHECK (priority IN ('HIGH', 'MEDIUM', 'LOW'));

@@ -1,7 +1,9 @@
 package com.sobolev.spring.taskmanagementsystem.model;
 
 import com.sobolev.spring.taskmanagementsystem.util.TaskPriority;
+import com.sobolev.spring.taskmanagementsystem.util.TaskPriorityConverter;
 import com.sobolev.spring.taskmanagementsystem.util.TaskStatus;
+import com.sobolev.spring.taskmanagementsystem.util.TaskStatusConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +22,7 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -53,4 +55,9 @@ public class Task {
 
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TaskComment> comments = new ArrayList<>();
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = new Date();
+    }
 }

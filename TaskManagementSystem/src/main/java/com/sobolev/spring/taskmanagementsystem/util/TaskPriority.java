@@ -1,17 +1,16 @@
 package com.sobolev.spring.taskmanagementsystem.util;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum TaskPriority {
-    HIGH("Высокий"),
-    MEDIUM("Средний"),
-    LOW("Низкий");
+    HIGH("HIGH", "Высокий"),
+    MEDIUM("MEDIUM", "Средний"),
+    LOW("LOW", "Низкий");
 
+    private final String dbValue;
     private final String displayName;
-
-    TaskPriority(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
 }
