@@ -61,6 +61,7 @@ POST /api/auth/login
 ```sh
 git clone https://github.com/Sy-rex/TaskManagementSystem.git
 cd TaskManagementSystem
+cd TaskManagementSystem
 ```
 
 ### 🔹 2. Сборка проекта (Maven подтянет зависимости автоматически):
